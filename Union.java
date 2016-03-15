@@ -18,6 +18,7 @@ public class Union {
 	} 
 	public int root(int num){
 		while(num!=data[num]){
+			data[num] = data[data[num]];
 			num = data[num];
 		}
 		return num;
