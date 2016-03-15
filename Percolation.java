@@ -22,8 +22,6 @@ public class Percolation {
 		}
 	}
 	public void open(int i, int j){
-		i--;
-		j--;
 		check(i,j);
 		sites[i][j]= true;
 		if(j-1>=0&&sites[i][j-1]){
@@ -40,14 +38,10 @@ public class Percolation {
 		}
 	}
 	public boolean isOpen(int i, int j){
-		i--;
-		j--;
 		check(i,j);
 		return sites[i][j];
 	}
 	public boolean isFull(int i, int j){
-		i--;
-		j--;
 		check(i,j);
 		return union.connected(i*N+j, N*N)&&isOpen(i,j);
 	}
@@ -58,5 +52,9 @@ public class Percolation {
 		if(i<0||i>=N){
 			throw new IndexOutOfBoundsException("outofbound");
 		}
+	}
+	public static void main(String[] args){
+		Percolation test = new Percolation(6);
+		test.open(0,5);
 	}
 }
