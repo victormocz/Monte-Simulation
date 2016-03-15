@@ -5,6 +5,9 @@ public class Percolation {
 	public Union union;
 	private int N;
 	public Percolation(int N){
+		if(N<=0){
+			throw new IllegalArgumentException();
+		}
 		sites = new Site[N][N];
 		for(int row=0;row<N;row++){
 			for(int col=0;col<N;col++){
@@ -19,6 +22,9 @@ public class Percolation {
 		}
 	}
 	public void open(int i, int j){
+		i--;
+		j--;
+		check(i,j);
 		sites[i][j].open();
 		if(j-1>=0&&sites[i][j-1].isOpen()){
 			union.union(N*i+j-1, N*i+j);
@@ -34,12 +40,23 @@ public class Percolation {
 		}
 	}
 	public boolean isOpen(int i, int j){
+		i--;
+		j--;
+		check(i,j);
 		return sites[i][j].isOpen();
 	}
 	public boolean isFull(int i, int j){
+		i--;
+		j--;
+		check(i,j);
 		return union.connected(i*N+j, N*N);
 	}
 	public boolean percolates(){
 		return union.connected(N*N, N*N+1);
+	}
+	private void check(int i,int j){
+		if(i<0||i>=N){
+			throw new IndexOutOfBoundsException("outofbound");
+		}
 	}
 }

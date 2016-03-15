@@ -5,21 +5,11 @@ import edu.princeton.cs.algs4.StdDraw;
 
 public class MainApp {
 	public static void main(String[] args) {
-		int N = 20;
-		double p = 20.0;
-		int M = 20;
-
-		// repeatedly created N-by-N matrices and display them using standard
-		// draw
-		for (int i = 0; i < M; i++) {
-			//boolean[][] open = Percolation.random(N, p);
-			StdDraw.clear();
-			StdDraw.setPenColor(StdDraw.BLACK);
-			
-			StdDraw.setPenColor(StdDraw.GRAY);
-			//boolean[][] full = Percolation.flow(open);
-			
-			StdDraw.show(1000);
-		}
+		int N = Integer.parseInt(args[0]);
+		int T = Integer.parseInt(args[1]);
+		PercolationStats test = new PercolationStats(N,T);
+		System.out.println("mean\t\t\t\t= "+test.mean());
+		System.out.println("stddev\t\t\t\t= "+test.stddev());
+		System.out.println("95% confidence interval\t\t= "+test.confidenceLo()+", "+test.confidenceHi());
 	}
 }

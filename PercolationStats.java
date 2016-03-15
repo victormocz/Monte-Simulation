@@ -7,14 +7,17 @@ public class PercolationStats {
 	private double mean=-1.0;
 	private double stddev=-1.0;
 	public PercolationStats(int N, int T){
+		if(N<=0||T<=0){
+			throw new IllegalArgumentException();
+		}
 		Random rd = new Random();
 		result = new double[T];
 		for(int i=0;i<result.length;i++){
 			int count=0;
 			percolation = new Percolation(N);
 			while(!percolation.percolates()){
-				int col = rd.nextInt(N);
-				int row = rd.nextInt(N);
+				int col = rd.nextInt(N)+1;
+				int row = rd.nextInt(N)+1;
 				if(!percolation.isOpen(row, col)){
 					percolation.open(row, col);
 					count++;
