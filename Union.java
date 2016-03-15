@@ -30,7 +30,7 @@ public class Union {
 			size[root1]+=size[root2];
 		}else{
 			data[root1] = data[root2];
-			size[root2]+=size[root1];
+			size[root2]+= size[root1];
 		}
 	}
 }
