@@ -33,4 +33,9 @@ public class Union {
 			size[root2]+= size[root1];
 		}
 	}
+	public void info(){
+		for(int i:data){
+			System.out.print(i+" ");
+		}
+	}
 }

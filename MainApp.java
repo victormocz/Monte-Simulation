@@ -2,9 +2,11 @@ package Monte;
 
 public class MainApp {
 	public static void main(String[] args){
-		Union test = new Union(10);
-		test.union(0, 1);
-		test.union(1, 2);
-		System.out.println(test.connected(0, 3));
+		Percolation test = new Percolation(4);
+		test.open(0, 0);
+		test.open(1, 0);
+		test.open(2, 0);
+		test.open(3, 0);
+		test.union.info();
 	}
 }
