@@ -1,4 +1,3 @@
-package Monte;
 import java.util.Random;
 
 public class PercolationStats {
@@ -16,8 +15,8 @@ public class PercolationStats {
 			int count=0;
 			percolation = new Percolation(N);
 			while(!percolation.percolates()){
-				int col = rd.nextInt(N)+1;
-				int row = rd.nextInt(N)+1;
+				int col = rd.nextInt(N);
+				int row = rd.nextInt(N);
 				if(!percolation.isOpen(row, col)){
 					percolation.open(row, col);
 					count++;
@@ -30,7 +29,7 @@ public class PercolationStats {
 			all+=result[i];
 		}
 		this.mean = result.length!=0?all/result.length:0.0;
-		
+
 		double stdev = 0.0;
 		for(int i=0;i<result.length;i++){
 			stdev+= (result[i]-mean)*(result[i]-mean);
@@ -50,7 +49,7 @@ public class PercolationStats {
 	public double confidenceHi(){
 		return this.mean+1.96*this.stddev/Math.sqrt(result.length);
 	}
-	
+
 	public static void main(String[] args){
 		int N = Integer.parseInt(args[0]);
 		int T = Integer.parseInt(args[1]);

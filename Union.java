@@ -1,9 +1,7 @@
-package Monte;
-
 public class Union {
 	private int[] data;
 	private int[] size;
-	
+
 	public Union(int N){
 		data = new int[N];
 		size = new int[N];
@@ -12,10 +10,10 @@ public class Union {
 			size[i] = 1;
 		}
 	}
-	
+
 	public boolean connected(int node1,int node2){
 		return root(node1)==root(node2);
-	} 
+	}
 	public int root(int num){
 		while(num!=data[num]){
 			data[num] = data[data[num]];

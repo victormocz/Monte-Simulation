@@ -1,4 +1,3 @@
-
 public class Percolation {
 	private boolean[][] sites;
 	private Union union;
