@@ -1,2 +1,0 @@
-# Monte-Simulation
-Algorithm Project

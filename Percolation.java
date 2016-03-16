@@ -1,4 +1,3 @@
-package Monte;
 
 public class Percolation {
 	private boolean[][] sites;
@@ -49,12 +48,8 @@ public class Percolation {
 		return union.connected(N*N, N*N+1);
 	}
 	private void check(int i,int j){
-		if(i<0||i>=N){
+		if((i<0||i>=N)&&(j<0||j>=N)){
 			throw new IndexOutOfBoundsException("outofbound");
 		}
-	}
-	public static void main(String[] args){
-		Percolation test = new Percolation(6);
-		test.open(0,5);
 	}
 }
